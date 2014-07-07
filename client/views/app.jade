@@ -3,7 +3,7 @@ html(lang="en")
   head
     meta(charset="utf-8")
     != SocketStream
-    title Two Staged
+    title Raphael.js Staged
     script(src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
     script(src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js")
     //script(src="http://cdnjs.cloudflare.com/ajax/libs/howler/1.1.17/howler.min.js")
@@ -19,20 +19,13 @@ script
   window.onload = function(){
     var paper = new Raphael(document.getElementById('stage-canvas'), 500, 500);
 
-    var sideLength = 100;
-    var x = sideLength * Math.cos(Raphael.rad(60));
-    var y = sideLength * Math.sin(Raphael.rad(60));
-
-    var hexagon = paper.path(
-        ['M', 200, 150,
-        'l', sideLength, 0,
-        x, y,
-        -x, y,
-        -sideLength, 0,
-        -x, -y,
-        x,-y,
-        ]
-    );
+    paper.path([
+      'M', 250, 125,
+      'C', 400, 40, 425, 240, 250, 320,
+      'M', 250, 125,
+      'C', 100, 40, 75, 240, 250, 320,
+      'z'
+    ]).attr({fill: '#E74C3C', stroke: '#E74C3C'});
 
 
   }

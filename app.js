@@ -16,20 +16,6 @@ ss.http.route('/', function(req, res){
   res.serveClient('main');
 });
 
-
-ss.client.define('other', {
-  view: 'cuadras.jade',
-  css:  ['libs/reset.css', 'app.styl'],
-  code: ['libs/jquery.min.js', 'app'],
-  tmpl: '*'
-});
-
-// Serve this client on the root URL
-ss.http.route('/cuadras', function(req, res){
-  res.serveClient('other');
-});
-
-
 // Code Formatters
 ss.client.formatters.add(require('ss-jade'));
 ss.client.formatters.add(require('ss-stylus'));
